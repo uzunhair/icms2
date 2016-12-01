@@ -6,6 +6,7 @@
     $is_can_add = ($user->is_logged && cmsUser::isAllowed('comments', 'add')) || (!$user->is_logged && $is_guests_allowed);
     $is_highlight_new = isset($is_highlight_new) ? $is_highlight_new : false;
     if (!isset($is_can_rate)) { $is_can_rate = false; }
+    $limit_nesting =  $this->controller->options['limit_nesting'];
 ?>
 
 <?php foreach($comments as $entry){
@@ -29,7 +30,7 @@
 
 ?>
 
-<div id="comment_<?php echo $entry['id']; ?>" class="comment<?php if($is_selected){ ?> selected-comment<?php } ?><?php if($target_user_id == $entry['user_id']){ ?> is_topic_starter<?php } ?>" <?php if ($is_levels) { ?>style="margin-left: <?php echo ($entry['level']-1)*30; ?>px" data-level="<?php echo $entry['level']; ?>"<?php } ?>>
+<div id="comment_<?php echo $entry['id']; ?>" class="comment<?php if($is_selected){ ?> selected-comment<?php } ?><?php if($target_user_id == $entry['user_id']){ ?> is_topic_starter<?php } ?>" <?php if ($is_levels) { ?>style="margin-left: <?php if ($entry['level'] <= $limit_nesting) { echo ($entry['level']-1)*30; } else { echo ($limit_nesting-1)*30; } ?>px" data-level="<?php echo $entry['level']; ?>"<?php } ?>>
     <?php if($entry['is_deleted']){ ?>
         <span class="deleted"><?php echo LANG_COMMENT_DELETED; ?></span>
         <span class="nav">

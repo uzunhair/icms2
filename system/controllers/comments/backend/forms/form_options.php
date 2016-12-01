@@ -47,6 +47,14 @@ class formCommentsOptions extends cmsForm {
                         'hint' => LANG_COMMENTS_UPDATE_USER_RATING_HINT,
                     )),
 
+                    new fieldNumber('limit_nesting', array(
+                        'title' => LANG_LIST_LIMIT_NESTING,
+                        'default' => 5,
+                        'rules' => array(
+                            array('required')
+                        )
+                    )),
+
                     new fieldNumber('limit', array(
                         'title' => LANG_LIST_LIMIT,
                         'default' => 15,

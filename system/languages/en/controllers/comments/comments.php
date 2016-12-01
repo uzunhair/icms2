@@ -18,6 +18,7 @@ define('LANG_COMMENTS_OPT_IS_GUESTS_HINT', 'Unregistered users will be able to a
 define('LANG_COMMENTS_OPT_GUESTS_DELAY', 'Delay between guest comments from one IP');
 define('LANG_COMMENTS_OPT_GUESTS_RESTRICTED_IPS', 'Deny guest comments from IPs');
 define('LANG_COMMENTS_OPT_GUESTS_RESTRICTED_IPS_HINT', 'One IP per line');
+define('LANG_LIST_LIMIT_NESTING', 'Nesting level of comments');
 define('LANG_COMMENTS_DS_ALL', 'All');
 define('LANG_COMMENTS_DS_FRIENDS', 'My friends');
 define('LANG_COMMENTS_DS_MY', 'My');
