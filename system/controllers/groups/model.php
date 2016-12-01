@@ -122,9 +122,15 @@ class modelGroups extends cmsModel{
                 $image_path = $config->upload_path . $image_url;
                 @unlink($image_path);
             }
+<<<<<<< HEAD
 
         }
 
+=======
+
+        }
+
+>>>>>>> refs/remotes/instantsoft/master
         return $this->delete('groups', $group['id']);
 
     }

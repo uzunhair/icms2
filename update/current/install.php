@@ -7,6 +7,8 @@ function install_package(){
 	$core = cmsCore::getInstance();
     $content_model = cmsCore::getModel('content');
 
+<<<<<<< HEAD
+=======
     $ctypes = $content_model->getContentTypes();
 
 	foreach($ctypes as $ctype){
@@ -25,6 +27,7 @@ function install_package(){
 
 	}
 
+>>>>>>> refs/remotes/instantsoft/master
     return true;
 
 }

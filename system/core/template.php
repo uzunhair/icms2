@@ -159,7 +159,11 @@ class cmsTemplate {
      */
     public function printCssTags() {
 
+<<<<<<< HEAD
+        if (!cmsConfig::get('merge_css')){
+=======
         if (!$this->site_config->merge_css){
+>>>>>>> refs/remotes/instantsoft/master
             foreach ($this->head_main_css as $id=>$file){	echo "\t". $this->getCSSTag($file) . "\n";	}
             foreach ($this->head_css as $id=>$file){	echo "\t". $this->getCSSTag($file) . "\n";	}
         } else {
