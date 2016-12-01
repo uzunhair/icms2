@@ -42,7 +42,7 @@ class modelGroups extends cmsModel{
 
     public function updateGroupContentTitles($id, $new_group_title){
 
-        $counts = $this->getGroupContentCounts($id);
+        $counts = $this->getGroupContentCounts($id, true);
 
         if (!$counts) { return true; }
 
@@ -66,7 +66,7 @@ class modelGroups extends cmsModel{
 
     public function removeContentFromGroup($id, $is_delete=false){
 
-        $counts = $this->getGroupContentCounts($id);
+        $counts = $this->getGroupContentCounts($id, true);
 
         if (!$counts) { return true; }
 
@@ -122,9 +122,15 @@ class modelGroups extends cmsModel{
                 $image_path = $config->upload_path . $image_url;
                 @unlink($image_path);
             }
+<<<<<<< HEAD
 
         }
 
+=======
+
+        }
+
+>>>>>>> refs/remotes/instantsoft/master
         return $this->delete('groups', $group['id']);
 
     }
@@ -449,11 +455,16 @@ class modelGroups extends cmsModel{
 //============================================================================//
 //============================================================================//
 
-    public function getGroupContentCounts($id){
+    public function getGroupContentCounts($id, $is_owner=false, $filter_callback = false){
 
         $counts = array();
 
         $content_model = cmsCore::getModel('content');
+
+        if ($is_owner){
+            $content_model->disableApprovedFilter();
+			$content_model->disablePubFilter();
+        }
 
         $ctypes = $content_model->getContentTypes();
 
@@ -461,6 +472,10 @@ class modelGroups extends cmsModel{
 
             $content_model->filterEqual('parent_id', $id);
             $content_model->filterEqual('parent_type', 'group');
+
+            if(is_callable($filter_callback)){
+                $filter_callback($ctype, $content_model);
+            }
 
             $count = $content_model->getContentItemsCount( $ctype['name'] );
 
