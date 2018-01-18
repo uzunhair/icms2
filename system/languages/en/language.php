@@ -282,6 +282,7 @@
     define('LANG_SHOW_TO_GROUPS',            'Show to groups');
     define('LANG_HIDE_FOR_GROUPS',           'Hide from groups');
     define('LANG_PERM_OPTION_TO_OWN',        'Only to own');
+    define('LANG_PERM_OPTION_TO_OTHER',      'Only in others');
     define('LANG_PERM_OPTION_TO_ALL',        'To all');
     define('LANG_PERM_OPTION_OWN_TO_OWN',    'Own to own');
     define('LANG_PERM_OPTION_OWN_TO_OTHER',  'Own to others');
